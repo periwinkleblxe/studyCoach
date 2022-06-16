@@ -6,21 +6,31 @@
 //
 
 import SwiftUI
+import UIKit
+import FirebaseDatabase
 import FirebaseCore
-//import FirebaseFirestore
 import FirebaseAuth
+
+
+//import FirebaseFirestore
+/*
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     FirebaseApp.configure()
-
-    return true
+      //let provider = FUIOAuth.appleAuthProvider()
+      var ref: DatabaseReference!
+          ref = Database.database().reference()
+      return true
   }
-}
+}*/
 
 @main
 struct studyCoachApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    init() {
+            FirebaseApp.configure()
+        }
+    //@UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @Environment(\.scenePhase) private var scenePhase
     @StateObject var classData: ClassData = ClassData()
     @StateObject var tData: taskData = taskData()
@@ -28,12 +38,14 @@ struct studyCoachApp: App {
     @StateObject var thisUser: User = User()
     @StateObject var dateData: dates = dates()
     @StateObject var dData: dayData = dayData()
+    
     //@StateObject var dataSet: dataCaching = dataCaching()
     var body: some Scene {
         WindowGroup {
             
             ContentView()
-                //fill text with preview features?
+                
+                        //fill text with preview features?
                 /*Text("")
                     .foregroundStyle(.secondary)*/
             
@@ -48,7 +60,9 @@ struct studyCoachApp: App {
                 //dataSet.saveData()
             }
             if phase == .active {
-                //dataSet.loadData()
+                //let handle = Auth.auth().addStateDidChangeListener { auth, user in
+                  
+                
             }
         }    }
     
