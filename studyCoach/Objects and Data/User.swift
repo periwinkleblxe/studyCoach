@@ -1,10 +1,26 @@
 import SwiftUI
+import Firebase
+import FirebaseAuth
 
-class User: ObservableObject, Identifiable, Codable {
-    var id = UUID().uuidString
-    var name: String = ""
-    @Published var isNewUser: Bool = true
-    @Published var email = ""
-    var password = ""    //var classes: [Class] = []
+class UserAccount: ObservableObject, Identifiable, Codable {
+    let userID = Auth.auth().currentUser?.uid
+    //@StateObject var classData: ClassData
+    var emailString: String
     
+    //var email: String
+    
+    //var password: String  //var classes: [Class] = []
+    init(email: String) {
+        emailString = email
+        //classData = ClassData()
+        
+    }
+    func loadFromData(uid: String) {
+        
+        
+    }
+    func saveToData(uid: String) {
+        
+        
+    }
 }

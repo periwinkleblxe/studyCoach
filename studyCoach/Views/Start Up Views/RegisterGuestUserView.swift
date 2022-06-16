@@ -4,7 +4,7 @@ struct registerGuestUserView: View{
     @Environment(\.dismiss) var dismiss
     
     @EnvironmentObject var classData: ClassData
-    @EnvironmentObject var thisUser: User
+    @EnvironmentObject var thisUser: UserAccount
     @EnvironmentObject var dateData: dates
     @EnvironmentObject var dData: dayData
     var body: some View {
@@ -36,7 +36,7 @@ struct registerGuestUserView: View{
                 for dayID in dData.dayItemData {
                     print(dayID.dayFormatted)
                 }*/
-                thisUser.isNewUser = false
+                
                 dismiss()
             } label: {
                 Text("Confirm").font(.body).fontWeight(.light)

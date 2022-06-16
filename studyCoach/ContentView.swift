@@ -1,11 +1,14 @@
 import SwiftUI
+import Firebase
+import FirebaseAuth
 
 struct ContentView: View {
-    @State var buttonMod: Bool = false;
-    @EnvironmentObject var thisUser: User
-    
+    @Binding var userUnAuth: Bool
+    @Environment(\.scenePhase) private var scenePhase
+    //@EnvironmentObject var thisUser: User
+    var handle: AuthStateDidChangeListenerHandle?
     var body: some View {
-        VStack{
+        
             
                 VStack{
                     ZStack{
@@ -58,7 +61,7 @@ struct ContentView: View {
                     
                     }
                     //Spacer()
-                }.fullScreenCover(isPresented: $thisUser.isNewUser, content: {
+                }.fullScreenCover(isPresented: $userUnAuth, content: {
                     NavigationView{
                         
                         AppStartView()
@@ -66,8 +69,10 @@ struct ContentView: View {
                     }
                 })
         
-        }
     }
+        
+    
+    
 }
 
 

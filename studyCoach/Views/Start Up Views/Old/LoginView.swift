@@ -27,12 +27,14 @@ struct LoginView: View {
             }
         }
     }
-    func login() {
+    func login(){
            Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
                if error != nil {
                    print(error?.localizedDescription ?? "")
+                   
                } else {
                    print("success")
+                   
                }
            }
        }
